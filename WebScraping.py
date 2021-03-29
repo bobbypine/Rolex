@@ -18,8 +18,9 @@ class Rolex:
                     auth=self.auth, data=self.data, headers=self.headers)
         # convert response to JSON and pull access_token value
         self.TOKEN = self.res.json()['access_token']
+        self.keylist = ['call ', 'called', 'picked up']
 
-    def scrape(self):
+    def scrape(self, keyword):
         # add authorization to our headers dictionary
         authheaders = {**self.headers, **{'Authorization': f"bearer {self.TOKEN}"}}
         # while the token is valid (~2 hours) we just add headers=headers to our requests
@@ -27,12 +28,12 @@ class Rolex:
         res = requests.get("https://oauth.reddit.com/r/rolex/new",
                    headers=authheaders, params={'limit':'100'})
         for post in res.json()['data']['children']:
-            if 'call ' in post['data']['title'].lower():
-                print('Title: {} Date: {} Picture: {}'. format(post['data']['title'], post['data']['created'], post['data']['thumbnail']))
-            if 'called' in post['data']['title'].lower():
-                print('Title: {} Date: {} Picture: {}'. format(post['data']['title'], post['data']['created'], post['data']['thumbnail']))
+            if keyword in post['data']['title'].lower():
+                print(post['kind']+'_'+post['data']['id'], post['data']['title'], post['data']['created'], post['data']['thumbnail'])
 
 
 if __name__ == '__main__':
     test = Rolex()
-    test.scrape()
+    for keyword in test.keylist:
+        test.scrape(keyword)
+
