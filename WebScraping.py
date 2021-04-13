@@ -1,7 +1,6 @@
 import requests
 import pandas as pd
 
-# this is a test
 
 class Rolex:
     def __init__(self):
