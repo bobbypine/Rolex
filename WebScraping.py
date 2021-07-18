@@ -1,4 +1,5 @@
 import requests
+import pandas as pd
 
 
 class Rolex:
