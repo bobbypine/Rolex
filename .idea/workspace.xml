@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c1b59c31-7a57-4904-971d-4e5b4bffb133" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AD_List/Rolex_AD_List_7_2021.csv" beforeDir="false" afterPath="$PROJECT_DIR$/AD_List/Rolex_AD_List_7_2021.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authorized_Dealers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Authorized_Dealers.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +37,7 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.Prices">
     <configuration name="Authorized_Dealers" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Rolex" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -62,8 +60,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Prices" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Rolex" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Prices.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Prices" />
         <item itemvalue="Python.Authorized_Dealers" />
       </list>
     </recent_temporary>
@@ -81,7 +102,7 @@
       <updated>1626690980745</updated>
       <workItem from="1626690981841" duration="3978000" />
       <workItem from="1626984520920" duration="1200000" />
-      <workItem from="1626990922377" duration="395000" />
+      <workItem from="1626990922377" duration="3601000" />
     </task>
     <servers />
   </component>
@@ -104,28 +125,29 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1493" height="281" key="GridCell.Tab.0.bottom" timestamp="1626990891071">
+    <state width="1493" height="281" key="GridCell.Tab.0.bottom" timestamp="1626997896208">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="281" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1626990891071" />
+    <state width="1493" height="281" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1626997896208" />
     <state width="1877" height="374" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1626717033313" />
-    <state width="1493" height="281" key="GridCell.Tab.0.center" timestamp="1626990891071">
+    <state width="1493" height="281" key="GridCell.Tab.0.center" timestamp="1626997896208">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="281" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1626990891071" />
+    <state width="1493" height="281" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1626997896208" />
     <state width="1877" height="374" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1626717033313" />
-    <state width="1493" height="281" key="GridCell.Tab.0.left" timestamp="1626990891071">
+    <state width="1493" height="281" key="GridCell.Tab.0.left" timestamp="1626997896208">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="281" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1626990891071" />
+    <state width="1493" height="281" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1626997896208" />
     <state width="1877" height="374" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1626717033313" />
-    <state width="1493" height="281" key="GridCell.Tab.0.right" timestamp="1626990891071">
+    <state width="1493" height="281" key="GridCell.Tab.0.right" timestamp="1626997896208">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="281" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1626990891071" />
+    <state width="1493" height="281" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1626997896208" />
     <state width="1877" height="374" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1626717033313" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Rolex$Authorized_Dealers.coverage" NAME="Authorized_Dealers Coverage Results" MODIFIED="1626991136861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Rolex$Prices.coverage" NAME="Prices Coverage Results" MODIFIED="1626997896200" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
