@@ -3,6 +3,7 @@ import urllib3
 from bs4 import BeautifulSoup
 import datetime
 import pandas as pd
+import re
 
 urllib3.disable_warnings()
 
@@ -15,14 +16,26 @@ def ads():
     name_table = soup.findAll('p', {"class" : "sc-pRhbc ePDsLp"})
     address_table = soup.findAll('address', {"class" : "sc-oTzDS fotNMM"})
     data = data.append(name_table)
-    data['Address'] = address_table
+    data['Full_Address'] = address_table
     data.rename(columns={0:'Name'}, inplace=True)
     data.sort_values('Name', ascending=True, inplace=True)
-    print(data)
+
+    data['Full_Address'] = data['Full_Address'].apply(lambda x: x.text[:-13])
+    data['Full_Address'] = data['Full_Address'].apply(lambda x: re.sub(r"(\w)([A-Z])", r"\1, \2", x))
+    data['Full_Address'] = data['Full_Address'].str.split(',')
+    data['Address'] = data['Full_Address'].str[0]
+    data['City_State'] = data['Full_Address'].str[-1].str[:-5].str.strip()
+    data['Zip'] = data['Full_Address'].str[-1].str[-5:].str.strip()
+    data.drop('Full_Address', axis=1, inplace=True)
+
+    data['ID'] = (data.Name.str.replace(' ', '').str.upper() + data.Address.str.replace(' ', '').str.upper()
+                  + data.City_State.str.replace(' ', '').str.upper() + data.Zip)
+
+    data.to_csv(f'AD_List/Rolex_AD_List_{datetime.date.today().month}_{datetime.date.today().year}.csv', index=False)
 
 
 def adcount():
-    file = open('AD_Count.txt', 'a')
+    file = open('AD_Count/AD_Count.txt', 'a')
     url = 'https://www.rolex.com/rolex-dealers/unitedstates.html#mode=list&placeId=ChIJCzYy5IS16lQRQrfeQ5K5Oxw'
     response = requests.get(url=url, verify=False)
     soup = BeautifulSoup(response.text, 'html.parser')
@@ -36,3 +49,4 @@ def adcount():
 
 if __name__ == "__main__":
     adcount()
+    ads()
