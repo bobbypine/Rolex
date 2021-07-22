@@ -25,12 +25,20 @@ def ads():
     data['Full_Address'] = data['Full_Address'].str.split(',')
     data['Address'] = data['Full_Address'].str[0]
     data['City_State'] = data['Full_Address'].str[-1].str[:-5].str.strip()
+    data.loc[data['City_State'].str.split(' ').str[-2].isin(['New', 'North', 'South', 'Rhode']), 'State'] \
+        = data['City_State'].str.split(' ').str[-2:].str.join(',').str.replace(',', ' ')
+    data.loc[~data['City_State'].str.split(' ').str[-2].isin(['New', 'North', 'South', 'Rhode']), 'State']  \
+        = data['City_State'].str.split(' ').str[-1]
+    data.loc[data['City_State'].str.split(' ').str[-1] == data['State'], 'City'] \
+        = data['City_State'].str.split(' ').str[:-1].str.join(',').str.replace(',', ' ')
+    data.loc[data['City_State'].str.split(' ').str[-1] != data['State'], 'City'] \
+        = data['City_State'].str.split(' ').str[:-2].str.join(',').str.replace(',', ' ')
     data['Zip'] = data['Full_Address'].str[-1].str[-5:].str.strip()
-    data.drop('Full_Address', axis=1, inplace=True)
+    data.drop(['Full_Address', 'City_State'], axis=1, inplace=True)
 
-    data['ID'] = (data.Name.str.replace(' ', '').str.upper() + data.Address.str.replace(' ', '').str.upper()
-                  + data.City_State.str.replace(' ', '').str.upper() + data.Zip)
-
+    data['ID'] = (data.Name.str.replace(' ', '').str.upper() + data.Address.str.replace(' ','').str.upper()
+        + data.State.str.replace(' ','').str.upper() + data.City.str.replace(' ', '').str.upper() + data.Zip)
+    data = data[['Name', 'Address', 'City', 'State', 'Zip', 'ID']]
     data.to_csv(f'AD_List/Rolex_AD_List_{datetime.date.today().month}_{datetime.date.today().year}.csv', index=False)
 
 
