@@ -23,11 +23,12 @@ def prices(ref):
     data[ref] = data[ref].str.replace('\n', '').str.replace('$', '').str.replace(',' ,'').str.strip()
     data = data.loc[(data[ref] != 'Price on request') & (data[ref] != 'SOLD')]
     data[ref] = data[ref].astype('int')
+    data[f'{ref} Listings'] = len(data)
     data['Date'] = datetime.date.today().strftime('%m-%d-%Y')
     data.set_index('Date', inplace=True)
-    average = np.median(data[ref])
-    print(f'{ref} Median Price: ${average}')
-    print(f'{ref} Recorded {len(data)} Observations')
+    median = np.median(data[ref])
+    print(f'{ref} Median Price: ${median}')
+    print(f'{ref} Recorded {len(data)} Observations \r\n')
     return data
 
 
@@ -39,7 +40,10 @@ def run():
     pricing = pd.concat([sub, gmt, op, ex])
     median = pd.pivot_table(pricing, index='Date', values=['126610LN', '126710BLRO', '124300', '124270'],
                               aggfunc='median')
-    median.to_csv('Prices/Weekly_Median_Prices.csv')
+    listings = pd.pivot_table(pricing, index='Date', values=['126610LN Listings', '126710BLRO Listings',
+                                                             '124300 Listings', '124270 Listings'], aggfunc='max')
+    combined = pd.concat([median,listings], axis=1)
+    combined.to_csv('Prices/Weekly_Median_Prices.csv')
 
 
 if __name__ == "__main__":
