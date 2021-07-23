@@ -21,12 +21,12 @@ def prices(ref):
     data = pd.DataFrame(price_list)
     data.rename(columns={0 :ref}, inplace=True)
     data[ref] = data[ref].str.replace('\n', '').str.replace('$', '').str.replace(',' ,'').str.strip()
-    data = data.loc[data[ref] != 'Price on request']
+    data = data.loc[(data[ref] != 'Price on request') & (data[ref] != 'SOLD')]
     data[ref] = data[ref].astype('int')
-    data['Date'] = datetime.date.today().strftime('%m-%Y')
+    data['Date'] = datetime.date.today().strftime('%m-%d-%Y')
     data.set_index('Date', inplace=True)
-    average = np.average(data[ref])
-    print(f'{ref} Average Price: ${average}')
+    average = np.median(data[ref])
+    print(f'{ref} Median Price: ${average}')
     print(f'{ref} Recorded {len(data)} Observations')
     return data
 
@@ -37,13 +37,9 @@ def run():
     op = pd.DataFrame(prices('124300'))
     ex = pd.DataFrame(prices('124270'))
     pricing = pd.concat([sub, gmt, op, ex])
-    averages = pd.pivot_table(pricing, index='Date', values=['126610LN', '126710BLRO', '124300', '124270'],
-                              aggfunc='mean')
-    writer = pd.ExcelWriter(f'Prices/Prices_{datetime.date.today().month}_{datetime.date.today().year}.xlsx',
-                            engine='openpyxl')
-    pricing.to_excel(writer, sheet_name='Prices')
-    averages.to_excel(writer, sheet_name='Averages')
-    writer.save()
+    median = pd.pivot_table(pricing, index='Date', values=['126610LN', '126710BLRO', '124300', '124270'],
+                              aggfunc='median')
+    median.to_csv('Prices/Weekly_Median_Prices.csv')
 
 
 if __name__ == "__main__":
