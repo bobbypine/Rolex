@@ -4,8 +4,8 @@ import pandas as pd
 
 class Rolex:
     def __init__(self):
-        self.personal = 'XojKdiU2bbMb1w'
-        self.secret = 'ctok-4bh8PtyT9SYpG_ILLZdiojtTQ'
+        self.personal = ''
+        self.secret = ''
         # note that CLIENT_ID refers to 'personal use script' and SECRET_TOKEN to 'token'
         self.auth = requests.auth.HTTPBasicAuth(self.personal, self.secret)
         # here we pass our login method (password), username, and password
