@@ -43,7 +43,7 @@ def run():
     listings = pd.pivot_table(pricing, index='Date', values=['126610LN Listings', '126710BLRO Listings',
                                                              '124300 Listings', '124270 Listings'], aggfunc='max')
     combined = pd.concat([median,listings], axis=1)
-    combined.to_csv('Prices/Weekly_Median_Prices.csv')
+    # combined.to_csv('Prices/Weekly_Median_Prices.csv')
 
 
 if __name__ == "__main__":
