@@ -47,9 +47,9 @@ def run():
     combined['126710BLRO Markup'] = (combined['126710BLRO'] / 9500 - 1) * 100
     combined['124300 Markup'] = (combined['124300'] / 5900 - 1) * 100
     combined['124270 Markup'] = (combined['124270'] / 6450 - 1) * 100
-    saved_data = pd.read_csv('Prices/Weekly_Median_Prices.csv')
+    saved_data = pd.read_csv('Prices/Weekly_Median_Prices.csv', index_col = 0)
     saved_data = pd.concat([saved_data, combined])
-    saved_data.to_csv('Prices/Weekly_Median_Prices.csv')
+    saved_data.to_csv('Prices/Weekly_Median_Prices.csv', index = 'Date')
 
 
 if __name__ == "__main__":
