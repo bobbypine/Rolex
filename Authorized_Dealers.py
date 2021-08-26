@@ -57,4 +57,4 @@ def adcount():
 
 if __name__ == "__main__":
     adcount()
-    # ads()
+    ads()
