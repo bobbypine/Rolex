@@ -36,18 +36,28 @@ def run():
     gmt = pd.DataFrame(prices('126710BLRO'))
     op = pd.DataFrame(prices('124300'))
     ex = pd.DataFrame(prices('124270'))
-    # ndsub = pd.DataFrame(prices('124060'))
-    pricing = pd.concat([sub, gmt, op, ex])
-    median = pd.pivot_table(pricing, index='Date', values=['126610LN', '126710BLRO', '124300', '124270'],
-                            aggfunc='median')
+    ndsub = pd.DataFrame(prices('124060'))
+    gmtii = pd.DataFrame(prices('126710BLNR'))
+    exii = pd.DataFrame(prices('226570'))
+    gsub = pd.DataFrame(prices('126610LV'))
+    pricing = pd.concat([sub, gmt, op, ex, ndsub, gmtii, exii, gsub])
+    median = pd.pivot_table(pricing, index='Date',
+                            values=['126610LN', '126710BLRO', '124300', '124270', '124060', '126710BLNR', '226570',
+                                    '126610LV'], aggfunc='median')
     listings = pd.pivot_table(pricing, index='Date', values=['126610LN Listings', '126710BLRO Listings',
-                                                             '124300 Listings', '124270 Listings'], aggfunc='max')
+                                                             '124300 Listings', '124270 Listings', '124060 Listings',
+                                                             '126710BLNR Listings', '226570 Listings',
+                                                             '126610LV Listings'], aggfunc='max')
+
     combined = pd.concat([median, listings], axis=1)
     combined['126610LN Markup'] = (combined['126610LN'] / 9150 - 1) * 100
     combined['126710BLRO Markup'] = (combined['126710BLRO'] / 9500 - 1) * 100
     combined['124300 Markup'] = (combined['124300'] / 5900 - 1) * 100
     combined['124270 Markup'] = (combined['124270'] / 6450 - 1) * 100
-    # combined['124060 Markup'] = (combined['124060'] / 8100 - 1) * 100
+    combined['124060 Markup'] = (combined['124060'] / 8100 - 1) * 100
+    combined['126710BLNR Markup'] = (combined['126710BLNR'] / 9500 - 1) * 100
+    combined['226570 Markup'] = (combined['226570'] / 8550 - 1) * 100
+    combined['126610LV Markup'] = (combined['126610LV'] / 9550 - 1) * 100
     saved_data = pd.read_csv('Prices/Weekly_Median_Prices.csv', index_col=0)
     saved_data = pd.concat([saved_data, combined])
     saved_data.to_csv('Prices/Weekly_Median_Prices.csv', index='Date')
