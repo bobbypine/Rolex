@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c1b59c31-7a57-4904-971d-4e5b4bffb133" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prices/Weekly_Median_Prices.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Prices/Weekly_Median_Prices.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +55,7 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Prices">
+  <component name="RunManager" selected="Python.Authorized_Dealers">
     <configuration name="Authorized_Dealers" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Rolex" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -103,8 +102,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Prices" />
         <item itemvalue="Python.Authorized_Dealers" />
+        <item itemvalue="Python.Prices" />
       </list>
     </recent_temporary>
   </component>
@@ -153,6 +152,7 @@
       <workItem from="1636639851216" duration="374000" />
       <workItem from="1636720675009" duration="1132000" />
       <workItem from="1637342014644" duration="81000" />
+      <workItem from="1637927064024" duration="723000" />
     </task>
     <servers />
   </component>
@@ -172,29 +172,29 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1493" height="279" key="GridCell.Tab.0.bottom" timestamp="1637342095513">
+    <state width="1493" height="279" key="GridCell.Tab.0.bottom" timestamp="1637937086047">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="279" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1637342095513" />
+    <state width="1493" height="279" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1637937086047" />
     <state width="1877" height="371" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1634907119569" />
-    <state width="1493" height="279" key="GridCell.Tab.0.center" timestamp="1637342095512">
+    <state width="1493" height="279" key="GridCell.Tab.0.center" timestamp="1637937086047">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="279" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1637342095512" />
+    <state width="1493" height="279" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1637937086047" />
     <state width="1877" height="371" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1634907119569" />
-    <state width="1493" height="279" key="GridCell.Tab.0.left" timestamp="1637342095512">
+    <state width="1493" height="279" key="GridCell.Tab.0.left" timestamp="1637937086047">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="279" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1637342095512" />
+    <state width="1493" height="279" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1637937086047" />
     <state width="1877" height="371" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1634907119569" />
-    <state width="1493" height="279" key="GridCell.Tab.0.right" timestamp="1637342095512">
+    <state width="1493" height="279" key="GridCell.Tab.0.right" timestamp="1637937086047">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="279" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1637342095512" />
+    <state width="1493" height="279" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1637937086047" />
     <state width="1877" height="371" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1634907119569" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Rolex$Authorized_Dealers.coverage" NAME="Authorized_Dealers Coverage Results" MODIFIED="1635497660341" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Rolex$Prices.coverage" NAME="Prices Coverage Results" MODIFIED="1637342022124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Rolex$Prices.coverage" NAME="Prices Coverage Results" MODIFIED="1637927122262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
