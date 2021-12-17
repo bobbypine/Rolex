@@ -13,7 +13,7 @@ def prices(ref):
     for x in range(1, 6):
         url = 'https://www.chrono24.com/search/index.htm?currencyId=USD&dosearch=true&facets=condition&facets=specials&facets=usedOrNew&facets=availability&maxAgeInDays=0&pageSize=120&query=Rolex+{}&redirectToSearchIndex=true&resultview=block&searchexplain=1&showpage={}&sortorder=0&specials=102&usedOrNew=new'.format \
             (ref, x)
-        response = requests.get(url=url, verify=False)
+        response = requests.get(url=url, verify=True)
         soup = BeautifulSoup(response.text, 'html.parser')
         for prices in soup.findAll('strong')[5:]:
             price_list.append(prices.text)
@@ -65,3 +65,4 @@ def run():
 
 if __name__ == "__main__":
     run()
+
