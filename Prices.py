@@ -67,7 +67,7 @@ def run():
 
 
 def update_db():
-    new_data = pd.read_csv('https://raw.githubusercontent.com/bobbypine/Rolex/main/Prices/Weekly_Median_Prices.csv').tail(1)
+    new_data = pd.read_csv('Prices/Weekly_Median_Prices.csv').tail(1)
     engine = create_engine(config.api_key)
     with engine.connect() as conn:
         new_data.to_sql(
