@@ -4,6 +4,9 @@ from bs4 import BeautifulSoup
 import datetime
 import pandas as pd
 import numpy as np
+import config
+from sqlalchemy import create_engine
+
 
 urllib3.disable_warnings()
 
@@ -61,6 +64,19 @@ def run():
     saved_data = pd.read_csv('Prices/Weekly_Median_Prices.csv', index_col=0)
     saved_data = pd.concat([saved_data, combined])
     saved_data.to_csv('Prices/Weekly_Median_Prices.csv', index='Date')
+
+
+def update_db():
+    new_data = pd.read_csv('https://raw.githubusercontent.com/bobbypine/Rolex/main/Prices/Weekly_Median_Prices.csv').tail(1)
+    engine = create_engine(config.api_key)
+    with engine.connect() as conn:
+        new_data.to_sql(
+        "test_update", # change this to "Weekly_Median_Prices.csv"
+        conn,
+        schema=f"{config.user_name}/rolex_prices",
+        index=False,
+        if_exists='append')
+    conn.close()
 
 
 if __name__ == "__main__":
