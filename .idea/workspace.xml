@@ -23,7 +23,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1b59c31-7a57-4904-971d-4e5b4bffb133" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Prices.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prices.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +64,7 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Prices">
+  <component name="RunManager" selected="Python.Authorized_Dealers">
     <configuration name="Authorized_Dealers" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Rolex" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -112,8 +111,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Prices" />
         <item itemvalue="Python.Authorized_Dealers" />
+        <item itemvalue="Python.Prices" />
       </list>
     </recent_temporary>
   </component>

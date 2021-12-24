@@ -67,18 +67,21 @@ def run():
 
 
 def update_db():
+    print('Updating Database...')
     new_data = pd.read_csv('Prices/Weekly_Median_Prices.csv').tail(1)
     engine = create_engine(config.api_key)
     with engine.connect() as conn:
         new_data.to_sql(
-        "test_update", # change this to "Weekly_Median_Prices.csv"
+        "Weekly_Median_Prices.csv",
         conn,
         schema=f"{config.user_name}/rolex_prices",
         index=False,
         if_exists='append')
     conn.close()
+    print('Database Updated!')
 
 
 if __name__ == "__main__":
     run()
+    update_db()
 
