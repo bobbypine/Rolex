@@ -53,14 +53,14 @@ def run():
                                                              '126610LV Listings'], aggfunc='max')
 
     combined = pd.concat([median, listings], axis=1)
-    combined['126610LN Markup'] = (combined['126610LN'] / 9150 - 1) * 100
-    combined['126710BLRO Markup'] = (combined['126710BLRO'] / 9500 - 1) * 100
-    combined['124300 Markup'] = (combined['124300'] / 5900 - 1) * 100
-    combined['124270 Markup'] = (combined['124270'] / 6450 - 1) * 100
-    combined['124060 Markup'] = (combined['124060'] / 8100 - 1) * 100
-    combined['126710BLNR Markup'] = (combined['126710BLNR'] / 9500 - 1) * 100
-    combined['226570 Markup'] = (combined['226570'] / 8550 - 1) * 100
-    combined['126610LV Markup'] = (combined['126610LV'] / 9550 - 1) * 100
+    combined['126610LN Markup'] = (combined['126610LN'] / 10100 - 1) * 100
+    combined['126710BLRO Markup'] = (combined['126710BLRO'] / 10750 - 1) * 100
+    combined['124300 Markup'] = (combined['124300'] / 6150 - 1) * 100
+    combined['124270 Markup'] = (combined['124270'] / 7200 - 1) * 100
+    combined['124060 Markup'] = (combined['124060'] / 8950 - 1) * 100
+    combined['126710BLNR Markup'] = (combined['126710BLNR'] / 10750 - 1) * 100
+    combined['226570 Markup'] = (combined['226570'] / 9500 - 1) * 100
+    combined['126610LV Markup'] = (combined['126610LV'] / 10600 - 1) * 100
     saved_data = pd.read_csv('Prices/Weekly_Median_Prices.csv', index_col=0)
     saved_data = pd.concat([saved_data, combined])
     saved_data.to_csv('Prices/Weekly_Median_Prices.csv', index='Date')
