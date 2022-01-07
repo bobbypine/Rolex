@@ -22,7 +22,7 @@ def prices(ref):
             price_list.append(prices.text)
     data = pd.DataFrame(price_list)
     data.rename(columns={0: ref}, inplace=True)
-    data[ref] = data[ref].str.replace('\n', '').str.replace('$', '').str.replace(',', '').str.strip()
+    data[ref] = data[ref].str.replace('\n', '', regex=False).str.replace('$', '', regex=False).str.replace(',', '', regex=False).str.strip()
     data = data.loc[(data[ref].str.isnumeric())]
     data[ref] = data[ref].astype('int')
     data[f'{ref} Listings'] = len(data)
