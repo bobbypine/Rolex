@@ -2,6 +2,8 @@ from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
 import pandas as pd
 
+# Compares month-over-month changes in Rolex domestic ADs
+# Utilizes fuzzy matching to eliminate false openings/closings from minor syntax changes (ave versus avenue, etc)
 
 def rolliefuzz(prior_month_number, current_month_number, prior_month_year, current_month_year):
     o_data = pd.read_csv(r'../AD_List/Rolex_AD_List_{}_{}.csv'.format(prior_month_number, prior_month_year))[

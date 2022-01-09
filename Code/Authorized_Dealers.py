@@ -7,6 +7,7 @@ import re
 
 urllib3.disable_warnings()
 
+# Compiles and counts U.S.-based Rolex ADs
 
 def ads():
     data = pd.DataFrame()

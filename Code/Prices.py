@@ -10,6 +10,8 @@ from sqlalchemy import create_engine
 
 urllib3.disable_warnings()
 
+# Collects pricing information for Rolex watches by reference number.
+
 
 def prices(ref):
     price_list = []
