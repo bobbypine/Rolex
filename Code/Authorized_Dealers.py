@@ -39,11 +39,11 @@ def ads():
     data['ID'] = (data.Name.str.replace(' ', '').str.upper() + data.Address.str.replace(' ','').str.upper()
         + data.State.str.replace(' ','').str.upper() + data.City.str.replace(' ', '').str.upper() + data.Zip)
     data = data[['Name', 'Address', 'City', 'State', 'Zip', 'ID']]
-    data.to_csv(f'AD_List/Rolex_AD_List_{datetime.date.today().month}_{datetime.date.today().year}.csv', index=False)
+    data.to_csv(f'/..AD_List/Rolex_AD_List_{datetime.date.today().month}_{datetime.date.today().year}.csv', index=False)
 
 
 def adcount():
-    file = open('AD_Count/AD_Count.txt', 'a')
+    file = open('../AD_Count/AD_Count.txt', 'a')
     url = 'https://www.rolex.com/rolex-dealers/unitedstates.html#mode=list&placeId=ChIJCzYy5IS16lQRQrfeQ5K5Oxw'
     response = requests.get(url=url, verify=False)
     soup = BeautifulSoup(response.text, 'html.parser')

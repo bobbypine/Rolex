@@ -61,14 +61,14 @@ def run():
     combined['126710BLNR Markup'] = (combined['126710BLNR'] / 10750 - 1) * 100
     combined['226570 Markup'] = (combined['226570'] / 9500 - 1) * 100
     combined['126610LV Markup'] = (combined['126610LV'] / 10600 - 1) * 100
-    saved_data = pd.read_csv('Prices/Weekly_Median_Prices.csv', index_col=0)
+    saved_data = pd.read_csv('../Prices/Weekly_Median_Prices.csv', index_col=0)
     saved_data = pd.concat([saved_data, combined])
-    saved_data.to_csv('Prices/Weekly_Median_Prices.csv', index='Date')
+    saved_data.to_csv('../Prices/Weekly_Median_Prices.csv', index='Date')
 
 
 def update_db():
     print('Updating Database...')
-    new_data = pd.read_csv('Prices/Weekly_Median_Prices.csv').tail(1)
+    new_data = pd.read_csv('../Prices/Weekly_Median_Prices.csv').tail(1)
     engine = create_engine(config.api_key)
     with engine.connect() as conn:
         new_data.to_sql(
