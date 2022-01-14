@@ -24,9 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c1b59c31-7a57-4904-971d-4e5b4bffb133" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AD_Change.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/AD_Change.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authorized_Dealers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Authorized_Dealers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prices.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Prices.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prices/Weekly_Median_Prices.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Prices/Weekly_Median_Prices.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +72,7 @@
       <recent name="C:\Users\robru\Repositories\Rolex\AD_List" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.AD_Change (1)">
+  <component name="RunManager" selected="Python.Authorized_Dealers (1)">
     <configuration name="AD_Change (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Rolex" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -138,7 +136,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Authorized_Dealers" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Authorized_Dealers (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Rolex" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -146,12 +144,32 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Code" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\robru\Repositories\Rolex\Code\Authorized_Dealers.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Code/Authorized_Dealers.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Prices (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Rolex" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Code" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Code/Prices.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -184,11 +202,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Authorized_Dealers (1)" />
+        <item itemvalue="Python.Prices (1)" />
         <item itemvalue="Python.AD_Change (1)" />
         <item itemvalue="Python.AD_Change (1)" />
         <item itemvalue="Python.AD_Change" />
-        <item itemvalue="Python.Authorized_Dealers" />
-        <item itemvalue="Python.Prices" />
       </list>
     </recent_temporary>
   </component>
