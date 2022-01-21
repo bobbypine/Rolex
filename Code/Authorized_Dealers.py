@@ -40,6 +40,8 @@ def ads():
     data['ID'] = (data.Name.str.replace(' ', '').str.upper() + data.Address.str.replace(' ','').str.upper()
         + data.State.str.replace(' ','').str.upper() + data.City.str.replace(' ', '').str.upper() + data.Zip)
     data = data[['Name', 'Address', 'City', 'State', 'Zip', 'ID']]
+    # For Minnesota ADs which use MN instead of the state name
+    data.loc[data.State == 'N', 'State'] = 'Minnesota'
     data.to_csv(f'../AD_List/Rolex_AD_List_{datetime.date.today().month}_{datetime.date.today().year}.csv', index=False)
 
 
