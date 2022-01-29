@@ -37,14 +37,14 @@ def prices(ref):
 
 
 def run():
-    sub = pd.DataFrame(prices('126610LN'))
-    gmt = pd.DataFrame(prices('126710BLRO'))
-    op = pd.DataFrame(prices('124300'))
-    ex = pd.DataFrame(prices('124270'))
-    ndsub = pd.DataFrame(prices('124060'))
-    gmtii = pd.DataFrame(prices('126710BLNR'))
-    exii = pd.DataFrame(prices('226570'))
-    gsub = pd.DataFrame(prices('126610LV'))
+    sub = prices('126610LN')
+    gmt = prices('126710BLRO')
+    op = prices('124300')
+    ex = prices('124270')
+    ndsub = prices('124060')
+    gmtii = prices('126710BLNR')
+    exii = prices('226570')
+    gsub = prices('126610LV')
     pricing = pd.concat([sub, gmt, op, ex, ndsub, gmtii, exii, gsub])
     median = pd.pivot_table(pricing, index='Date',
                             values=['126610LN', '126710BLRO', '124300', '124270', '124060', '126710BLNR', '226570',
