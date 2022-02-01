@@ -5,17 +5,16 @@ import datetime
 import pandas as pd
 import re
 
-urllib3.disable_warnings()
 
 # Compiles and counts U.S.-based Rolex ADs
 
 def ads():
     data = pd.DataFrame()
     url = 'https://www.rolex.com/rolex-dealers/unitedstates.html#mode=list&placeId=ChIJCzYy5IS16lQRQrfeQ5K5Oxw'
-    response = requests.get(url=url, verify=False)
+    response = requests.get(url=url, verify=True)
     soup = BeautifulSoup(response.text, 'html.parser')
-    name_table = soup.findAll('p', {"class" : "sc-pJhSf gdVGCp"})
-    address_table = soup.findAll('address', {"class" : "sc-pZcYF Cqhcw"})
+    name_table = soup.findAll('p', {"class": "sc-pcjuG uJAsR"})
+    address_table = soup.findAll('address', {"class": "sc-psbuI efwYHr"})
     data = data.append(name_table)
     data['Full_Address'] = address_table
     data.rename(columns={0:'Name'}, inplace=True)
@@ -48,10 +47,10 @@ def ads():
 def adcount():
     file = open('../AD_Count/AD_Count.txt', 'a')
     url = 'https://www.rolex.com/rolex-dealers/unitedstates.html#mode=list&placeId=ChIJCzYy5IS16lQRQrfeQ5K5Oxw'
-    response = requests.get(url=url, verify=False)
+    response = requests.get(url=url, verify=True)
     soup = BeautifulSoup(response.text, 'html.parser')
-    name_table = soup.findAll('p', {"class" : "sc-pJhSf gdVGCp"})
-    address_table = soup.findAll('address', {"class" : "sc-pZcYF Cqhcw"})
+    name_table = soup.findAll('p', {"class": "sc-pcjuG uJAsR"})
+    address_table = soup.findAll('address', {"class": "sc-psbuI efwYHr"})
     file.write('{}/{}: {} \n'.format(datetime.date.today().month, datetime.date.today().year, len(name_table)))
     print('File Updated.')
     print('{}/{}: {} \r\n'.format(datetime.date.today().month, datetime.date.today().year, len(name_table)))
