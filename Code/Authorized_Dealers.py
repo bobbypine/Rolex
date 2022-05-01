@@ -54,7 +54,7 @@ def adcount():
     file.write('{}/{}: {} \n'.format(datetime.date.today().month, datetime.date.today().year, len(name_table)))
     print('File Updated.')
     print('{}/{}: {} \r\n'.format(datetime.date.today().month, datetime.date.today().year, len(name_table)))
-    # file.close()
+    file.close()
 
 
 if __name__ == "__main__":
