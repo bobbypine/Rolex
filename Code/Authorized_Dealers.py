@@ -13,8 +13,8 @@ def ads():
     url = 'https://www.rolex.com/rolex-dealers/unitedstates.html#mode=list&placeId=ChIJCzYy5IS16lQRQrfeQ5K5Oxw'
     response = requests.get(url=url, verify=True)
     soup = BeautifulSoup(response.text, 'html.parser')
-    name_table = soup.findAll('p', {"class": "sc-pYCbY kyjaWj"})
-    address_table = soup.findAll('address', {"class": "sc-pbXnS hMNvht"})
+    name_table = soup.findAll('p', {"class": "sc-pbXnS hMNvht"})
+    address_table = soup.findAll('address', {"class": "sc-psOQA kGGsZi"})
     data = data.append(name_table)
     data['Full_Address'] = address_table
     data.rename(columns={0:'Name'}, inplace=True)
@@ -49,8 +49,8 @@ def adcount():
     url = 'https://www.rolex.com/rolex-dealers/unitedstates.html#mode=list&placeId=ChIJCzYy5IS16lQRQrfeQ5K5Oxw'
     response = requests.get(url=url, verify=True)
     soup = BeautifulSoup(response.text, 'html.parser')
-    name_table = soup.findAll('p', {"class": "sc-pYCbY kyjaWj"})
-    address_table = soup.findAll('address', {"class": "sc-pbXnS hMNvht"})
+    name_table = soup.findAll('p', {"class": "sc-pbXnS hMNvht"})
+    address_table = soup.findAll('address', {"class": "sc-psOQA kGGsZi"})
     file.write('{}/{}: {} \n'.format(datetime.date.today().month, datetime.date.today().year, len(name_table)))
     print('File Updated.')
     print('{}/{}: {} \r\n'.format(datetime.date.today().month, datetime.date.today().year, len(name_table)))
