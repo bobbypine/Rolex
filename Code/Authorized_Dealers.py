@@ -8,6 +8,13 @@ import re
 
 # Compiles and counts U.S.-based Rolex ADs
 
+def list_convert(cell):
+    if type(cell) == str:
+        return cell
+    else:
+        return ' '.join(cell)
+
+
 def ads():
     states = {"AL": "Alabama", "AK": "Alaska", "AZ": "Arizona", "AR": "Arkansas", "CA": "California", "CO": "Colorado",
               "CT": "Connecticut", "DE": "Delaware", "FL": "Florida", "GA": "Georgia", "HI": "Hawaii", "ID": "Idaho",
@@ -24,35 +31,31 @@ def ads():
     url = 'https://www.rolex.com/rolex-dealers/unitedstates.html#mode=list&placeId=ChIJCzYy5IS16lQRQrfeQ5K5Oxw'
     response = requests.get(url=url, verify=True)
     soup = BeautifulSoup(response.text, 'html.parser')
-    name_table = soup.findAll('p', {"class": "sc-psOQA kGGsZi"})
-    address_table = soup.findAll('address', {"class": "sc-qXjgK sZlfd"})
-    data = data.append(name_table)
-    data['Full_Address'] = address_table
-    data.rename(columns={0:'Name'}, inplace=True)
-    data.sort_values('Name', ascending=True, inplace=True)
-
-    data['Full_Address'] = data['Full_Address'].apply(lambda x: x.text[:-13])
-    data['Full_Address'] = data['Full_Address'].apply(lambda x: re.sub(r"(\w)([A-Z])", r"\1, \2", x))
-    data['Full_Address'] = data['Full_Address'].str.split(',')
-    data['Address'] = data['Full_Address'].str[0]
-    data['City_State'] = data['Full_Address'].str[-1].str[:-5].str.strip()
-    data.loc[data['City_State'].str.split(' ').str[-2].isin(['New', 'North', 'South', 'Rhode']), 'State'] \
-        = data['City_State'].str.split(' ').str[-2:].str.join(',').str.replace(',', ' ')
-    data.loc[~data['City_State'].str.split(' ').str[-2].isin(['New', 'North', 'South', 'Rhode']), 'State']  \
-        = data['City_State'].str.split(' ').str[-1]
-    data.loc[data['City_State'].str.split(' ').str[-1] == data['State'], 'City'] \
-        = data['City_State'].str.split(' ').str[:-1].str.join(',').str.replace(',', ' ')
-    data.loc[data['City_State'].str.split(' ').str[-1] != data['State'], 'City'] \
-        = data['City_State'].str.split(' ').str[:-2].str.join(',').str.replace(',', ' ')
-    data['Zip'] = data['Full_Address'].str[-1].str[-5:].str.strip()
-    data.drop(['Full_Address', 'City_State'], axis=1, inplace=True)
-
-    data['ID'] = (data.Name.str.replace(' ', '').str.upper() + data.Address.str.replace(' ','').str.upper()
-        + data.State.str.replace(' ','').str.upper() + data.City.str.replace(' ', '').str.upper() + data.Zip)
-    data = data[['Name', 'Address', 'City', 'State', 'Zip', 'ID']]
-    # For Minnesota ADs which use MN or MI instead of the state name
-    data.loc[data.State == 'N', 'State'] = 'Minnesota'
-    data.loc[data.State == 'I', 'State'] = 'Michigan'
+    names = []
+    address = []
+    for x in soup.findAll('p', {"class": "sc-psOQA kGGsZi"}):
+        names.append(x.text.strip())
+    for x in soup.findAll('address', {"class": "sc-qXjgK sZlfd"}):
+        address.append(x.text.strip()[:-13])
+    data['Name'] = names
+    data['Full Address'] = address
+    data['State'] = data['Full Address'].str[:-5].str.split(' ').str[-1]
+    data.loc[data.State == '', 'State'] = data['Full Address'].str[:-5].str.split(' ').str[-2]
+    data.loc[data['Full Address'].str.split(' ').str[-3].isin(['North', 'South', 'Rhode', 'New']), 'State']\
+        = data['Full Address'].str.split(' ').str[-3:-1]
+    data['State'] = data['State'].apply(list_convert)
+    data['State'] = data['State'].replace(states)
+    data['Zip'] = data['Full Address'].str.split(' ').str[-1]
+    data['Address'] = data['Full Address'].apply(lambda x: re.sub(r"(\w)([A-Z])", r"\1, \2", x))
+    data['Test'] = (data.State.str.len() + 1 + data.Zip.str.len()) * -1  # finds the character length of the zip and state and removes it from address
+    data['Address'] = data.apply(lambda row: row['Address'][:row['Test']], axis=1)
+    data['City'] = data.Address.str.split(',').str[-1]
+    data['Test'] = (1 + data.City.str.len()) * -1  # finds length of city and removes it
+    data['Address'] = data.apply(lambda row: row['Address'][:row['Test']], axis=1)
+    data.drop(columns=['Full Address', 'Test'], inplace=True)  # drops columns no longer needed
+    data = data[['Name', 'Address', 'City', 'State', 'Zip']]
+    data['ID'] = data.Name + data.Address + data.City + data.State + data.Zip
+    data.ID = data.ID.str.replace(',', '').str.replace(' ', '').str.upper().str.strip()
     data.to_csv(f'../AD_List/Rolex_AD_List_{datetime.date.today().month}_{datetime.date.today().year}.csv', index=False)
 
 
