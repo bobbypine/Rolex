@@ -28,7 +28,7 @@ def prices(ref):
     data = data.loc[(data[ref].str.isnumeric())]
     data[ref] = data[ref].astype('int')
     data[f'{ref} Listings'] = len(data)
-    data['Date'] = datetime.date.today().strftime('%m-%d-%Y')
+    data['Date'] = datetime.date.today().strftime('%m/%d/%Y')
     data.set_index('Date', inplace=True)
     median = np.median(data[ref])
     print(f'{ref} Median Price: ${median}')
