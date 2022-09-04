@@ -32,9 +32,9 @@ def ads():
     soup = BeautifulSoup(response.text, 'html.parser')
     names = []
     address = []
-    for x in soup.findAll('p', {"class": "sc-psOQA kGGsZi"}):
+    for x in soup.findAll('p', {"class": "sc-oUmZK YzDqU"}):
         names.append(x.text.strip())
-    for x in soup.findAll('address', {"class": "sc-qXjgK sZlfd"}):
+    for x in soup.findAll('address', {"class": "sc-pleCs iCvOAj"}):
         address.append(x.text.strip()[:-13])
     data['Name'] = names
     data['Full Address'] = address
@@ -63,8 +63,8 @@ def adcount():
     url = 'https://www.rolex.com/rolex-dealers/unitedstates.html#mode=list&placeId=ChIJCzYy5IS16lQRQrfeQ5K5Oxw'
     response = requests.get(url=url, verify=True)
     soup = BeautifulSoup(response.text, 'html.parser')
-    name_table = soup.findAll('p', {"class": "sc-psOQA kGGsZi"})
-    address_table = soup.findAll('address', {"class": "sc-qXjgK sZlfd"})
+    name_table = soup.findAll('p', {"class": "sc-oUmZK YzDqU"})
+    address_table = soup.findAll('address', {"class": "sc-pleCs iCvOAj"})
     file.write('{}/{}: {} \n'.format(datetime.date.today().month, datetime.date.today().year, len(name_table)))
     print('File Updated.')
     print('{}/{}: {} \r\n'.format(datetime.date.today().month, datetime.date.today().year, len(name_table)))
