@@ -65,6 +65,7 @@ def adcount():
     soup = BeautifulSoup(response.text, 'html.parser')
     name_table = soup.findAll('p', {"class": "sc-oUmZK YzDqU"})
     address_table = soup.findAll('address', {"class": "sc-pleCs iCvOAj"})
+    print(len(name_table))
     file.write('{}/{}: {} \n'.format(datetime.date.today().month, datetime.date.today().year, len(name_table)))
     print('File Updated.')
     print('{}/{}: {} \r\n'.format(datetime.date.today().month, datetime.date.today().year, len(name_table)))
