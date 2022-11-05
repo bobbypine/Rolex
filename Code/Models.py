@@ -10,7 +10,7 @@ def all_watches():
     url = 'https://www.rolex.com/en-us/watches.html'
     response = requests.get(url, verify=True)
     soup = BeautifulSoup(response.text, 'html.parser')
-    for x in soup.find_all('span', class_='sc-fzoLag sc-fznxsB cUWXFh sc-qYhBd gVLbVc')[:-6]:
+    for x in soup.find_all('span', class_='sc-fzoLag sc-fznxsB cUWXFh sc-pkfsj eWAAem')[:-6]:
         watch = x.text.strip()
         watches.append(watch)
         name = watch.lower().replace(' ', '-')
@@ -31,11 +31,11 @@ def scrape(model):
     spec = []
     link = []
     reference = []
-    for x in soup2.find_all('h2', class_='sc-fzoLag sc-fzpjYC sc-qanuI dNwPNE'):
+    for x in soup2.find_all('h2', class_='sc-fzoLag sc-fzpjYC sc-pRdeG ccRamS'):
         name.append(x.text.strip())
     for x in soup2.find_all('span', class_='sc-fznKkj sc-fzoyAV fQsatj')[14:]:
         spec.append(x.text.strip())
-    for x in soup2.find_all('a', class_='sc-fzpans cKJzHK sc-qQwsb kWQips wa-guidedsearch'):
+    for x in soup2.find_all('a', class_='sc-fzpans cKJzHK sc-prpXb krXEOq wa-guidedsearch'):
         href = x['href']
         link.append(f'https://www.rolex.com/en-us{href}')
         reference.append(href[length:-5].upper())
