@@ -11,6 +11,7 @@ from sqlalchemy import create_engine
 urllib3.disable_warnings()
 
 # Collects pricing information for Rolex watches by reference number.
+# This version is no longer in use but remains for reference.
 
 
 def prices(ref):
