@@ -1,13 +1,13 @@
-import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
 import datetime
 import pandas as pd
 import numpy as np
 import config
-from sqlalchemy import create_engine
+
 
 # Collects pricing information for Rolex watches by reference number.
 # To add a new reference just add the reference number to 'ref_list' and the reference and MSRP in dict form in 'ref_prices'
@@ -29,7 +29,7 @@ def prices(ref):
             options.headless = True
             options.add_argument("--window-size=1920,1200")
             DRIVER_PATH = config.cd_path
-            driver = webdriver.Chrome(options=options, executable_path=DRIVER_PATH)
+            driver = webdriver.Chrome(service=Service(DRIVER_PATH), options=options)
             driver.get(url)
             element = driver.find_elements(By.ID, "wt-watches")[0].get_attribute("innerHTML")
             soup = BeautifulSoup(element, 'html.parser')
