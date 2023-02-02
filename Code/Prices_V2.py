@@ -33,7 +33,7 @@ def prices(ref):
             driver.get(url)
             element = driver.find_elements(By.ID, "wt-watches")[0].get_attribute("innerHTML")
             soup = BeautifulSoup(element, 'html.parser')
-            for items in soup.findAll('div', {'class': 'd-flex justify-content-between align-items-end m-b-2'}):
+            for items in soup.findAll('div', {'class': 'd-flex justify-content-between align-items-end m-b-1'}):
                 for price in items.findAll('div', {'class': 'text-bold'}):
                     price_list.append(price.text.strip())
             driver.quit()
