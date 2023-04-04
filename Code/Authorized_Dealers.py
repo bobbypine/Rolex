@@ -34,7 +34,7 @@ def ads():
     address = []
     country = []
     for x in soup.findAll('h2', {"class": "css-x99bf7 e89nfm54"}):
-        names.append(x.text.strip())
+        names.append(x.text.encode('ascii', 'ignore').decode('ascii'))
     for x in soup.findAll('p', {"class": "css-1l2psjl e89nfm52"}):
         countries = x.text.strip()[-13:]
         country.append(countries)
