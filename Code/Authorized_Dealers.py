@@ -76,6 +76,15 @@ def adcount():
     file.close()
 
 
+def adcount_test():  # allows you to see if a count is returned without amending the text file
+    url = 'https://www.rolex.com/en-us/store-locator/unitedstates'
+    response = requests.get(url=url, verify=True)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    name_table = soup.findAll('h2', {"class": "css-x99bf7 e89nfm54"})
+    print('{}/{}: {} \r\n'.format(datetime.date.today().month, datetime.date.today().year, len(name_table)))
+
+
 if __name__ == "__main__":
+    adcount_test()
     adcount()
     ads()
