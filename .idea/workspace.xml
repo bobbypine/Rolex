@@ -22,10 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1b59c31-7a57-4904-971d-4e5b4bffb133" name="Default Changelist" comment="Updated AD code">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Authorized_Dealers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Authorized_Dealers.py" afterDir="false" />
-    </list>
+    <list default="true" id="c1b59c31-7a57-4904-971d-4e5b4bffb133" name="Default Changelist" comment="Updated AD code - fixed adcount and adcount_test functions" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -251,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696615085139</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Updated AD code - fixed adcount and adcount_test functions">
+      <created>1696624177622</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696624177622</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,6 +274,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updated AD code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated AD code" />
+    <MESSAGE value="Updated AD code - fixed adcount and adcount_test functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated AD code - fixed adcount and adcount_test functions" />
   </component>
 </project>
