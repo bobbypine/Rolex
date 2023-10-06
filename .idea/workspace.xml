@@ -22,7 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1b59c31-7a57-4904-971d-4e5b4bffb133" name="Default Changelist" comment="">
+    <list default="true" id="c1b59c31-7a57-4904-971d-4e5b4bffb133" name="Default Changelist" comment="Updated AD code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Authorized_Dealers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Authorized_Dealers.py" afterDir="false" />
     </list>
@@ -244,6 +244,14 @@
       <workItem from="1638534255483" duration="1271000" />
       <workItem from="1638546619184" duration="476000" />
     </task>
+    <task id="LOCAL-00001" summary="Updated AD code">
+      <created>1696615085139</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1696615085139</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,5 +267,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Updated AD code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated AD code" />
   </component>
 </project>

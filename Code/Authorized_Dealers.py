@@ -75,8 +75,9 @@ def ads():
     driver.quit()
 
 def adcount():
+    country = []
     file = open('../AD_Count/AD_Count.txt', 'a')
-    url = 'https://www.rolex.com/en-us/store-locator/unitedstates'
+    url = 'https://www.rolex.com/en-us/store-locator/unitedstates?lat=30.858763796809384&lng=-121.54549680328962&z=3'
     options = Options()
     options.headless = True
     options.add_argument("--window-size=1920,1200")
@@ -85,7 +86,12 @@ def adcount():
     driver.get(url)
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
-    name_table = soup.findAll('h2', {"class": "css-x99bf7 e89nfm54"})
+    for x in soup.findAll('p', {"class": "css-1l2psjl e89nfm52"}):
+        countries = x.text.strip()[-13:]
+        country.append(countries)
+    name_table = pd.DataFrame()
+    name_table['country'] = country
+    name_table = name_table.loc[name_table.country == 'United States']
     print(len(name_table))
     file.write('{}/{}: {} \n'.format(datetime.date.today().month, datetime.date.today().year, len(name_table)))
     print('File Updated.')
@@ -95,7 +101,8 @@ def adcount():
 
 
 def adcount_test():  # allows you to see if a count is returned without amending the text file
-    url = 'https://www.rolex.com/en-us/store-locator/unitedstates'
+    country = []
+    url = 'https://www.rolex.com/en-us/store-locator/unitedstates?lat=30.858763796809384&lng=-121.54549680328962&z=3'
     options = Options()
     options.headless = True
     options.add_argument("--window-size=1920,1200")
@@ -104,11 +111,17 @@ def adcount_test():  # allows you to see if a count is returned without amending
     driver.get(url)
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
-    name_table = soup.findAll('h2', {"class": "css-x99bf7 e89nfm54"})
+    for x in soup.findAll('p', {"class": "css-1l2psjl e89nfm52"}):
+        countries = x.text.strip()[-13:]
+        country.append(countries)
+    name_table = pd.DataFrame()
+    name_table['country'] = country
+    name_table = name_table.loc[name_table.country == 'United States']
     print('{}/{}: {} \r\n'.format(datetime.date.today().month, datetime.date.today().year, len(name_table)))
     driver.quit()
 
+
 if __name__ == "__main__":
     # adcount_test()
-    # adcount()
-    ads()
+    adcount()
+    # ads()
