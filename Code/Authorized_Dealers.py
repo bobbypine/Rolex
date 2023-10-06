@@ -3,6 +3,10 @@ from bs4 import BeautifulSoup
 import datetime
 import pandas as pd
 import re
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+import config
 
 
 # Compiles and counts U.S.-based Rolex ADs
@@ -27,9 +31,15 @@ def ads():
               "WI": "Wisconsin", "WY": "Wyoming"}
 
     data = pd.DataFrame()
-    url = 'https://www.rolex.com/en-us/store-locator/unitedstates'
-    response = requests.get(url=url, verify=True)
-    soup = BeautifulSoup(response.text, 'html.parser')
+    url = 'https://www.rolex.com/en-us/store-locator/unitedstates?lat=30.858763796809384&lng=-121.54549680328962&z=3'
+    options = Options()
+    options.headless = True
+    options.add_argument("--window-size=1920,1200")
+    DRIVER_PATH = config.cd_path
+    driver = webdriver.Chrome(service=Service(DRIVER_PATH), options=options)
+    driver.get(url)
+    html = driver.page_source
+    soup = BeautifulSoup(html, 'html.parser')
     names = []
     address = []
     country = []
@@ -42,6 +52,7 @@ def ads():
     data['Name'] = names
     data['Full Address'] = address
     data['Country'] = country
+    data = data.loc[data.Country == 'United States']
     data['State'] = data['Full Address'].str[:-18].str.split(' ').str[-1]
     data.loc[data.State == '', 'State'] = data['Full Address'].str[:-18].str.split(' ').str[-2]
     data.loc[data['Full Address'].str.split(' ').str[-4].isin(['North', 'South', 'Rhode', 'New']), 'State']\
@@ -61,30 +72,43 @@ def ads():
     data['ID'] = data.Name + data.Address + data.City + data.State + data.Zip
     data.ID = data.ID.str.replace(',', '').str.replace(' ', '').str.upper().str.strip()
     data.to_csv(f'../AD_List/Rolex_AD_List_{datetime.date.today().month}_{datetime.date.today().year}.csv', index=False)
-
+    driver.quit()
 
 def adcount():
     file = open('../AD_Count/AD_Count.txt', 'a')
     url = 'https://www.rolex.com/en-us/store-locator/unitedstates'
-    response = requests.get(url=url, verify=True)
-    soup = BeautifulSoup(response.text, 'html.parser')
+    options = Options()
+    options.headless = True
+    options.add_argument("--window-size=1920,1200")
+    DRIVER_PATH = config.cd_path
+    driver = webdriver.Chrome(service=Service(DRIVER_PATH), options=options)
+    driver.get(url)
+    html = driver.page_source
+    soup = BeautifulSoup(html, 'html.parser')
     name_table = soup.findAll('h2', {"class": "css-x99bf7 e89nfm54"})
     print(len(name_table))
     file.write('{}/{}: {} \n'.format(datetime.date.today().month, datetime.date.today().year, len(name_table)))
     print('File Updated.')
     print('{}/{}: {} \r\n'.format(datetime.date.today().month, datetime.date.today().year, len(name_table)))
     file.close()
+    driver.quit()
 
 
 def adcount_test():  # allows you to see if a count is returned without amending the text file
     url = 'https://www.rolex.com/en-us/store-locator/unitedstates'
-    response = requests.get(url=url, verify=True)
-    soup = BeautifulSoup(response.text, 'html.parser')
+    options = Options()
+    options.headless = True
+    options.add_argument("--window-size=1920,1200")
+    DRIVER_PATH = config.cd_path
+    driver = webdriver.Chrome(service=Service(DRIVER_PATH), options=options)
+    driver.get(url)
+    html = driver.page_source
+    soup = BeautifulSoup(html, 'html.parser')
     name_table = soup.findAll('h2', {"class": "css-x99bf7 e89nfm54"})
     print('{}/{}: {} \r\n'.format(datetime.date.today().month, datetime.date.today().year, len(name_table)))
-
+    driver.quit()
 
 if __name__ == "__main__":
-    adcount_test()
-    adcount()
+    # adcount_test()
+    # adcount()
     ads()
