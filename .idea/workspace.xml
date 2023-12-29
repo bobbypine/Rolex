@@ -22,7 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1b59c31-7a57-4904-971d-4e5b4bffb133" name="Default Changelist" comment="Updated AD code - fixed adcount and adcount_test functions" />
+    <list default="true" id="c1b59c31-7a57-4904-971d-4e5b4bffb133" name="Default Changelist" comment="Updated AD code - fixed adcount and adcount_test functions">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Authorized_Dealers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Authorized_Dealers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prices/Weekly_Median_Prices.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Prices/Weekly_Median_Prices.csv" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +77,7 @@
       <recent name="C:\Users\robru\Repositories\Rolex\AD_List" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Authorized_Dealers (1)">
+  <component name="RunManager" selected="Python.Prices_V2">
     <configuration name="Authorized_Dealers (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Rolex" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -181,8 +185,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Authorized_Dealers (1)" />
         <item itemvalue="Python.Prices_V2" />
+        <item itemvalue="Python.Authorized_Dealers (1)" />
         <item itemvalue="Python.Reference_Changes" />
         <item itemvalue="Python.Models" />
         <item itemvalue="Python.Prices (1)" />

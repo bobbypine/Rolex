@@ -31,10 +31,9 @@ def ads():
               "WI": "Wisconsin", "WY": "Wyoming"}
 
     data = pd.DataFrame()
-    url = 'https://www.rolex.com/en-us/store-locator/unitedstates?lat=30.858763796809384&lng=-121.54549680328962&z=3'
+    url = 'https://www.rolex.com/en-us/store-locator/unitedstates?lat=36.16944548465586&lng=-91.70992187499999&z=3'
     options = Options()
     options.headless = True
-    options.add_argument("--window-size=1920,1200")
     DRIVER_PATH = config.cd_path
     driver = webdriver.Chrome(service=Service(DRIVER_PATH), options=options)
     driver.get(url)
@@ -77,10 +76,9 @@ def ads():
 def adcount():
     country = []
     file = open('../AD_Count/AD_Count.txt', 'a')
-    url = 'https://www.rolex.com/en-us/store-locator/unitedstates?lat=30.858763796809384&lng=-121.54549680328962&z=3'
+    url = 'https://www.rolex.com/en-us/store-locator/unitedstates?lat=36.16944548465586&lng=-91.70992187499999&z=3'
     options = Options()
     options.headless = True
-    options.add_argument("--window-size=1920,1200")
     DRIVER_PATH = config.cd_path
     driver = webdriver.Chrome(service=Service(DRIVER_PATH), options=options)
     driver.get(url)
@@ -102,10 +100,9 @@ def adcount():
 
 def adcount_test():  # allows you to see if a count is returned without amending the text file
     country = []
-    url = 'https://www.rolex.com/en-us/store-locator/unitedstates?lat=30.858763796809384&lng=-121.54549680328962&z=3'
+    url = 'https://www.rolex.com/en-us/store-locator/unitedstates?lat=36.16944548465586&lng=-91.70992187499999&z=3'
     options = Options()
     options.headless = True
-    options.add_argument("--window-size=1920,1200")
     DRIVER_PATH = config.cd_path
     driver = webdriver.Chrome(service=Service(DRIVER_PATH), options=options)
     driver.get(url)
@@ -123,5 +120,5 @@ def adcount_test():  # allows you to see if a count is returned without amending
 
 if __name__ == "__main__":
     # adcount_test()
-    adcount()
-    # ads()
+    # adcount()
+    ads()
